@@ -1,8 +1,8 @@
 machine:
   ruby:
-    version 2.0.0
+    version: 2.0.0
   environment:
-    TERRAFORM_VERSION: 0.6.6
+    TERRAFORM_VERSION: 0.11.10
 
 dependencies:
   cache_directories:
@@ -12,10 +12,10 @@ dependencies:
       mkdir -p $HOME/.terraform
       if [ -z "$(ls -A $HOME/.terraform/terraform_${TERRAFORM_VERSION}_linux_amd64.zip)" ]; then
         cd $HOME/.terraform
-        curl -LO https://dl.bintray.com/mitchellh/terraform/terraform_${TERRAFORM_VERSION}_linyx_amd64.zip
-        unzip -o terraform_${TERRAFORM_VERSION}_linyx_amd64.zip
+        curl -LO https://dl.bintray.com/mitchellh/terraform/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+        unzip -o terraform_${TERRAFORM_VERSION}_linux_amd64.zip
       fi
-    - sudo cp -fR =/.terraform/usr/local/bin
+    - sudo cp -fR ~/.terraform/* usr/local/bin
 
 test:
   pre:
